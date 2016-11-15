@@ -26,7 +26,7 @@ angular.module('app.routes', [])
   })
 
   .state('home.bookDetails', {
-    url: '/book-details',
+    url: '/:bookid',
     views: {
       'tab1': {
         templateUrl: 'templates/bookDetails.html',
