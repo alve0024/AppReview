@@ -1,8 +1,11 @@
 <ion-view title="Book Categories" id="page5">
   <ion-content padding="true" class="has-header">
-    <ion-list id="bookCategories-list6">
+    <ion-list id="bookCategories-list6" ng-repeat="book in booksPerCategory">
       <ion-item class="item-thumbnail-left" id="bookCategories-list-item13" ui-sref="home.bookDetails">
-        <h2>Categories</h2>
+        <img ng-src={{book.image}} height="100" width="100">
+        <h2><a ui-sref="details.book({bookid: book._id})">{{book.title}}</a></h2>
+        <p>{{book.author}}</p>
+        <p>{{book.cad_id}}</p>
         <ion-option-button class="button-positive"></ion-option-button>
       </ion-item>
     </ion-list>

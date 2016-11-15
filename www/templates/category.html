@@ -1,7 +1,7 @@
 <ion-view title="Category" id="page2">
   <ion-content padding="true" class="has-header">
     <ion-list id="category-list5" ng-repeat="item in categories">
-      <ion-item class="item-thumbnail-left item-icon-right" id="category-list-item12" ui-sref="home.bookCategories">
+      <ion-item class="item-thumbnail-left item-icon-right" id="category-list-item12" ui-sref="home.bookCategories({id: item._id})" >
         <img ng-src={{item.image}} height="100" width="100">
         <h1>{{item.title}}</h1>
         <i class="icon ion-android-arrow-dropright icon-accessory"></i>

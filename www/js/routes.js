@@ -16,7 +16,7 @@ angular.module('app.routes', [])
   })
 
   .state('home.bookCategories', {
-    url: '/book-categories',
+    url: '/:id',
     views: {
       'tab1': {
         templateUrl: 'templates/bookCategories.html',
