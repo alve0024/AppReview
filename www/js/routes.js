@@ -38,7 +38,7 @@ angular.module('app.routes', [])
   .state('home.author', {
     url: '/author',
     views: {
-      'tab2': {
+      'tab1': {
         templateUrl: 'templates/author.html',
         controller: 'authorCtrl'
       }
@@ -48,7 +48,7 @@ angular.module('app.routes', [])
   .state('home.settings', {
     url: '/page4',
     views: {
-      'tab3': {
+      'tab1': {
         templateUrl: 'templates/settings.html',
         controller: 'settingsCtrl'
       }
