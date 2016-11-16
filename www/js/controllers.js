@@ -26,7 +26,8 @@ angular.module('app.controllers', [])
         });
 }])
    
-.controller('bookDetailsCtrl', ['$scope', '$stateParams', 'categoryFactory', function ($scope, $stateParams, categoryFactory) {
+.controller('bookDetailsCtrl', ['$scope', '$stateParams', 'categoryFactory', 'ratingFactory',
+    function ($scope, $stateParams, categoryFactory, ratingFactory) {
     var bookID = $stateParams.bookid;
     categoryFactory.getProduct(bookID)
         .then(function(response) {
@@ -34,6 +35,25 @@ angular.module('app.controllers', [])
         }, function(error) {
             console.log(error);
         });
+
+    $scope.ratingsObject = {
+        iconOn : 'ion-ios-star',
+        iconOff : 'ion-ios-star-outline',
+        iconOnColor: 'rgb(200, 200, 100)',
+        iconOffColor:  'rgb(200, 100, 100)',
+        rating:  2,
+        minRating: 1,
+        callback: function(rating) {
+            $scope.ratingsCallback(rating);
+        }
+    };
+
+    $scope.ratingsCallback = function(rating) {
+        localStorage.setItem(bookID, rating);
+    };
+
+    $scope.ratingsObject.rating = ratingFactory.getRating(bookID);
+
 }])
    
 .controller('authorCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller

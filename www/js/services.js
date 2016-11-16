@@ -6,7 +6,6 @@ angular.module('app.services', [])
             var deferred = $q.defer();
             $http.get('data.json').then(function(response){
                 deferred.resolve(response.data.categories);
-                // console.log(re)
             }, function (error) {
                 console.log(error);
             });
@@ -29,10 +28,12 @@ angular.module('app.services', [])
             var deferred = $q.defer();
             $http.get('data.json').then(function(response){
                 var book = response.data.books;
+                console.log(id);
                 deferred.resolve(book.filter(x => x._id == id));
             }, function (error) {
                 console.log(error);
             });
+
             // Returning product lookup by Id
             // Use of promises in your service
             return deferred.promise;
@@ -40,6 +41,10 @@ angular.module('app.services', [])
     }
 }])
 
-.service('BlankService', [function(){
-
+.service('ratingFactory', [function(){
+    return {
+        getRating: function (bookID) {
+             return localStorage.getItem(bookID);
+        }
+    }
 }]);

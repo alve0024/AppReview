@@ -1,13 +1,14 @@
 <ion-view title="Book Details" id="page6">
     <ion-content padding="true" class="has-header">
       <div>
-        <h1>{{book[0].title}}</h1>
+        <h1 class="book_title">{{book[0].title}}</h1>
       </div>
       <div>
         <img ng-src={{book[0].image}} style="display: block; width: 80%; height: auto; margin-left: auto; margin-right: auto;">
       </div>
       <h3 id="author-heading1" style="color:#000000;">{{}}</h3>
       <div id="author-markdown3" class="show-list-numbers-and-dots">
+        <ionic-ratings index="0" ratingsobj='ratingsObject'></ionic-ratings>
         <h3>Price: {{ book[0].price | currency }}</h3>
         <h3>Short Description</h3>
         <p>{{ book[0].short_description}}</p>
